@@ -1,0 +1,157 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        xmlns:vm="clr-namespace:WpfApp.ViewModels"        
+        mc:Ignorable="d"
+        Title="" 
+        Height="500" Width="420"
+        MinHeight="450" MinWidth="350"
+        Foreground="{x:Null}" Visibility="Visible" Icon="/Views/Icon.png"
+        WindowStyle="None"
+        MouseDown="Drag">
+
+    <Window.Background>
+        <ImageBrush ImageSource="/Views/Background.jpg" Stretch="UniformToFill" Opacity="1" TileMode="Tile"/>
+    </Window.Background>
+
+    <Grid x:Name="GroupButton">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Головной блок-->
+        <Image Width="30" Height="30"
+               Source="/Views/Icon.png"
+               HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10">
+        </Image>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   Text="      Calculator" 
+                   Foreground="Black" FontFamily="Berlin Sans FB" FontSize="20" Margin="10"
+                   VerticalAlignment="Center"/>
+        <Button Grid.Column="3" Grid.Row="0"
+                Width="50" Height="50"
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                vm:ButtonStyle.Text="×"
+                vm:ButtonStyle.Stroke="red"
+                vm:ButtonStyle.Fill="#FF4040" 
+                Click="Exit"/>
+        <!--Головной блок-->
+
+        <!--Строка задач-->
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="4"
+                    Margin="10">
+            <TextBox x:Name="text_2" Height="70"
+                 FontSize="70" FontFamily="Berlin Sans FB" 
+                 TextAlignment="Right" VerticalContentAlignment="Center"                 
+                 BorderBrush="{x:Null}" Background="{x:Null}"/>
+            <TextBox x:Name="text_1" Height="30"
+                 FontSize="25" FontFamily="Berlin Sans FB" TextAlignment="Right"               
+                 VerticalContentAlignment="Center"                 
+                 BorderBrush="{x:Null}" Background="{x:Null}"/>
+        </StackPanel>
+        <!--Строка задач-->
+
+        <!--Циферблат-->        
+        <Button vm:ButtonStyle.Text="0"  
+                vm:ButtonStyle.Stroke="Black"
+                vm:ButtonStyle.Fill="White"
+                Grid.Column="1" Grid.Row="6" Content="0"/>        
+        <Button vm:ButtonStyle.Text="1"
+                vm:ButtonStyle.Stroke="Black"
+                vm:ButtonStyle.Fill="White"
+                Grid.Column="0" Grid.Row="5" Content="1"/>
+        <Button vm:ButtonStyle.Text="2"
+                vm:ButtonStyle.Stroke="Black"
+                vm:ButtonStyle.Fill="White"
+                Grid.Column="1" Grid.Row="5" Content="2"/>
+        <Button vm:ButtonStyle.Text="3"
+                vm:ButtonStyle.Stroke="Black"
+                vm:ButtonStyle.Fill="White"
+                Grid.Column="2" Grid.Row="5" Content="3"/>
+        <Button vm:ButtonStyle.Text="4"
+                vm:ButtonStyle.Stroke="Black"
+                vm:ButtonStyle.Fill="White"
+                Grid.Column="0" Grid.Row="4" Content="4"/>
+        <Button vm:ButtonStyle.Text="5"
+                vm:ButtonStyle.Stroke="Black"
+                vm:ButtonStyle.Fill="White"
+                Grid.Column="1" Grid.Row="4" Content="5"/>
+        <Button vm:ButtonStyle.Text="6"
+                vm:ButtonStyle.Stroke="Black"
+                vm:ButtonStyle.Fill="White"
+                Grid.Column="2" Grid.Row="4" Content="6"/>
+        <Button vm:ButtonStyle.Text="7"
+                vm:ButtonStyle.Stroke="Black"
+                vm:ButtonStyle.Fill="White"
+                Grid.Column="0" Grid.Row="3" Content="7"/>
+        <Button vm:ButtonStyle.Text="8"
+                vm:ButtonStyle.Stroke="Black"
+                vm:ButtonStyle.Fill="White"
+                Grid.Column="1" Grid.Row="3" Content="8"/>
+        <Button vm:ButtonStyle.Text="9"
+                vm:ButtonStyle.Stroke="Black"
+                vm:ButtonStyle.Fill="White"
+                Grid.Column="2" Grid.Row="3" Content="9"/>
+        <!--Циферблат-->
+        
+        <!--Фукнции-->
+        <Button vm:ButtonStyle.Text="C"
+                vm:ButtonStyle.Stroke="#636363"
+                vm:ButtonStyle.Fill="#6C92AF"
+                Grid.Column="0" Grid.Row="6" Content="C"/>
+        <Button vm:ButtonStyle.Text=","
+                vm:ButtonStyle.Stroke="#636363"
+                vm:ButtonStyle.Fill="#6C92AF"
+                Grid.Column="2" Grid.Row="6" Content="."/>
+        
+        <Button vm:ButtonStyle.Text="⇐"
+                vm:ButtonStyle.Stroke="#636363"
+                vm:ButtonStyle.Fill="#6C92AF"
+                Grid.Column="0" Grid.Row="2" Content="CE"/>
+        <Button vm:ButtonStyle.Text="("
+                vm:ButtonStyle.Stroke="#636363"
+                vm:ButtonStyle.Fill="#6C92AF"
+                Grid.Column="1" Grid.Row="2" Content="("/>
+        <Button vm:ButtonStyle.Text=")"
+                vm:ButtonStyle.Stroke="#636363"
+                vm:ButtonStyle.Fill="#6C92AF"
+                Grid.Column="2" Grid.Row="2" Content=")"/>
+
+        <Button vm:ButtonStyle.Text="÷"
+                vm:ButtonStyle.Stroke="#2A6478"
+                vm:ButtonStyle.Fill="#6C92AF"
+                Grid.Column="3" Grid.Row="2" Content="/"/>
+        <Button vm:ButtonStyle.Text="х"
+                vm:ButtonStyle.Stroke="#2A6478"
+                vm:ButtonStyle.Fill="#6C92AF"
+                Grid.Column="3" Grid.Row="3" Content="*"/>
+        <Button vm:ButtonStyle.Text="+"
+                vm:ButtonStyle.Stroke="#2A6478"
+                vm:ButtonStyle.Fill="#6C92AF"
+                Grid.Column="3" Grid.Row="4" Content="+"/>
+        <Button vm:ButtonStyle.Text="-"
+                vm:ButtonStyle.Stroke="#2A6478"
+                vm:ButtonStyle.Fill="#6C92AF"
+                Grid.Column="3" Grid.Row="5" Content="-"/>
+        <Button vm:ButtonStyle.Text="="
+                vm:ButtonStyle.Stroke="Red"
+                vm:ButtonStyle.Fill="#FF4040"
+                Grid.Column="3" Grid.Row="6" Content="="/>
+        <!--Фукнции-->
+    </Grid>
+</Window>
